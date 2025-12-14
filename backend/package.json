@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "Rajab Ali",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^25.0.2"
+  }
+}
