@@ -1,0 +1,56 @@
+import {
+  LayoutDashboard,
+  ClipboardList,
+  PlusCircle,
+  Calendar,
+  Clock,
+  CheckCircle,
+  XCircle,
+  BarChart3,
+  Link,
+  Play,
+  Send,
+  User,
+  Users,
+  LogOut,
+  LogIn,
+  BookOpen,
+  FileText,
+  Timer,
+  AlertTriangle,
+} from "lucide-react";
+
+export const Icons = {
+  // Navigation
+  dashboard: LayoutDashboard,
+  exams: ClipboardList,
+  login: LogIn,
+  logout: LogOut,
+  profile: User,
+
+  // Teacher actions
+  createExam: PlusCircle,
+  examList: ClipboardList,
+  copyLink: Link,
+  scoreboard: BarChart3,
+  students: Users,
+
+  // Exam status
+  upcoming: Calendar,
+  live: Clock,
+  ended: CheckCircle,
+  blocked: XCircle,
+
+  // Student actions
+  startExam: Play,
+  submitExam: Send,
+  viewResult: BarChart3,
+
+  // Exam content
+  question: FileText,
+  exam: BookOpen,
+  timer: Timer,
+
+  // Alerts / states
+  warning: AlertTriangle,
+};

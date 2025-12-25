@@ -1,10 +1,15 @@
-import { Button } from "@/components/ui/button";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import TeacherDashboard from "./pages/TeacherDashboard";
+import StudentDashboard from "./pages/StudentDashboard";
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/teacherdashboard" element={<TeacherDashboard />} />
+      <Route path="/studentdashboard" element={<StudentDashboard />} />
+    </Routes>
   );
 }
 
