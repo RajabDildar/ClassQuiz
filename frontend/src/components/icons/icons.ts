@@ -1,5 +1,8 @@
 import {
   LayoutDashboard,
+  GraduationCap,
+  UserRoundPen,
+  NotebookPen,
   ClipboardList,
   PlusCircle,
   Calendar,
@@ -21,6 +24,11 @@ import {
 } from "lucide-react";
 
 export const Icons = {
+  // home page
+  GraduationCap: GraduationCap,
+  UserRoundPen: UserRoundPen,
+  NotebookPen: NotebookPen,
+
   // Navigation
   dashboard: LayoutDashboard,
   exams: ClipboardList,

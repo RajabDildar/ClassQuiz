@@ -1,5 +1,6 @@
 import app from "./app.js";
 import mongoose from "mongoose";
+import "dotenv/config";
 
 const PORT: number = process.env.PORT ? Number(process.env.PORT) : 3000;
 

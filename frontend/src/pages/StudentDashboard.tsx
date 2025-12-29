@@ -1,6 +1,4 @@
-import type { FC } from "react";
-
-const StudentDashboard: FC = () => {
+const StudentDashboard = () => {
   return <div>StudentDashboard</div>;
 };
 
