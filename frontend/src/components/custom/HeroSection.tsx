@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <div className="py-16 md:py-24 bg-blue-50">
       <div className="md:px-32 lg:px-56 text-center">
-        <h1 className="text-6xl font-bold ">
+        <h1 className="text-3xl md:text-6xl font-bold ">
           Conduct secure, time-based online exams with confidence
         </h1>
         <p className="py-12 text-lg">
@@ -15,7 +15,7 @@ const HeroSection = () => {
           only during the allowed window. Evaluation and scoreboard are
           automatic.
         </p>
-        <div className="flex justify-center gap-3 [&>button]:cursor-pointer">
+        <div className="flex flex-wrap justify-center gap-3 [&>button]:cursor-pointer">
           <Button variant="blue" size="hero">
             <UserRoundPen className="h-5 w-5" />
             I'm a Teacher

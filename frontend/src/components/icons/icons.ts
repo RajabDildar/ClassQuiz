@@ -21,13 +21,19 @@ import {
   FileText,
   Timer,
   AlertTriangle,
+  ArrowRight,
+  MonitorUp,
+  BookOpenCheck,
 } from "lucide-react";
 
 export const Icons = {
   // home page
-  GraduationCap: GraduationCap,
+  logo: GraduationCap,
   UserRoundPen: UserRoundPen,
   NotebookPen: NotebookPen,
+  ArrowRight: ArrowRight,
+  MonitorUp: MonitorUp,
+  BookOpenCheck: BookOpenCheck,
 
   // Navigation
   dashboard: LayoutDashboard,
