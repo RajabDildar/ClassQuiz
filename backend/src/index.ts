@@ -12,5 +12,5 @@ mongoose
     });
   })
   .catch((): void => {
-    console.log("Failed to connect with DB");
+    console.log("Failed to connect with DB. Internal Server error.");
   });
