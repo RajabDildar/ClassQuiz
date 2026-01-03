@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Brand from "@/components/custom/Brand";
+import Brand from "@/components/custom/HomePage/Brand";
 
 const Navbar = () => {
   return (

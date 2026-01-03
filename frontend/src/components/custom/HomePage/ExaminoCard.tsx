@@ -11,9 +11,9 @@ interface CardProps {
   desc: string;
 }
 
-const HowItWorksCard = ({ Icon, title, desc }: CardProps) => {
+const ExaminoCard = ({ Icon, title, desc }: CardProps) => {
   return (
-    <Card className="w-64 h-64">
+    <Card className="w-64 h-64 my-6">
       <CardHeader className="place-items-center">
         <CardTitle className="rounded-full bg-blue-600 text-white h-16 w-16 flex justify-center items-center">
           {Icon}
@@ -25,4 +25,4 @@ const HowItWorksCard = ({ Icon, title, desc }: CardProps) => {
   );
 };
 
-export default HowItWorksCard;
+export default ExaminoCard;

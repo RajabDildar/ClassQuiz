@@ -24,6 +24,10 @@ import {
   ArrowRight,
   MonitorUp,
   BookOpenCheck,
+  Clock9,
+  Computer,
+  EyeOff,
+  Check,
 } from "lucide-react";
 
 export const Icons = {
@@ -34,6 +38,10 @@ export const Icons = {
   ArrowRight: ArrowRight,
   MonitorUp: MonitorUp,
   BookOpenCheck: BookOpenCheck,
+  Clock9: Clock9,
+  Computer: Computer,
+  EyeOff: EyeOff,
+  Check: Check,
 
   // Navigation
   dashboard: LayoutDashboard,
