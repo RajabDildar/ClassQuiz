@@ -1,5 +1,6 @@
 import ExaminoCard from "@/components/custom/HomePage/ExaminoCard";
 import { Icons } from "@/components/icons/icons";
+import SectionHeader from "@/components/custom/layout/SectionHeader";
 
 const HowItWorks = () => {
   const Question = Icons.question;
@@ -8,9 +9,11 @@ const HowItWorks = () => {
   const BookOpenCheck = Icons.BookOpenCheck;
   const NotebookPen = Icons.NotebookPen;
   return (
-    <div className="text-center">
-      <h2 className="text-4xl font-bold my-6">How It Works</h2>
-      <p>Simple, secure, and straightforward</p>
+    <div className="text-center py-3 my-6">
+      <SectionHeader
+        title="How It Works"
+        description="Simple, secure, and straightforward"
+      />
       <div className="Cards flex justify-around items-center flex-wrap py-6 px-2 gap-y-6 gap-x-3">
         <ExaminoCard
           Icon={<Question />}

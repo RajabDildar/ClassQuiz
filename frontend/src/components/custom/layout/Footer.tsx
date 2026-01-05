@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import Brand from "./Brand";
+import Brand from "@/components/custom/layout/Brand";
+import Signup from "@/components/custom/authComponents/Signup";
+import Login from "@/components/custom/authComponents/Login";
 
 const Footer = () => {
   return (
@@ -10,9 +12,9 @@ const Footer = () => {
           // titleClr="text-white"
           descClr="text-neutral-400"
         />
-        <div className="links mx-2 [&>button]:cursor-pointer">
-          <Button variant={"ghost"}>Login</Button>
-          <Button variant={"ghost"}>Sign Up</Button>
+        <div className="links mx-2 flex [&>button]:cursor-pointer">
+          <Login button={<Button variant={"ghost"}>Login</Button>} />
+          <Signup button={<Button variant={"ghost"}>Sign Up</Button>} />
           <Button variant={"ghost"}>About</Button>
         </div>
       </div>

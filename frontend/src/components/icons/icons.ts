@@ -28,6 +28,8 @@ import {
   Computer,
   EyeOff,
   Check,
+  ShieldCheck,
+  BarChart,
 } from "lucide-react";
 
 export const Icons = {
@@ -42,6 +44,8 @@ export const Icons = {
   Computer: Computer,
   EyeOff: EyeOff,
   Check: Check,
+  ShieldCheck: ShieldCheck,
+  BarChart: BarChart,
 
   // Navigation
   dashboard: LayoutDashboard,

@@ -1,10 +1,13 @@
 import PurposeCard from "@/components/custom/HomePage/PurposeCard";
+import SectionHeader from "@/components/custom/layout/SectionHeader";
 
 const ForTeachers = () => {
   return (
-    <div className="text-center bg-blue-50 py-3">
-      <h2 className="text-4xl font-bold my-6">Built for Teachers</h2>
-      <p>Save time. Conduct fair exams. Focus on teaching.</p>
+    <div className="text-center py-3 my-6">
+      <SectionHeader
+        title="Built for Teachers"
+        description="Save time. Conduct fair exams. Focus on teaching."
+      />
 
       <div className="flex items-center py-12 px-6 gap-y-6 gap-x-3 md:gap-x-8 flex-wrap md:flex-nowrap">
         <div>
