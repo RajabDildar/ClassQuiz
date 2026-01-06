@@ -1,10 +1,9 @@
 import { Icons } from "@/components/icons/icons";
 interface BrandProps {
   desc?: string;
-  descClr?: string;
 }
 
-const Brand = ({ desc, descClr }: BrandProps) => {
+const Brand = ({ desc }: BrandProps) => {
   const Icon = Icons.logo;
 
   return (
@@ -14,7 +13,7 @@ const Brand = ({ desc, descClr }: BrandProps) => {
       </div>
       <div>
         <h1 className="text-2xl font-bold">Examino</h1>
-        <p className={descClr}>{desc}</p>
+        <p className="text-neutral-400">{desc}</p>
       </div>
     </div>
   );

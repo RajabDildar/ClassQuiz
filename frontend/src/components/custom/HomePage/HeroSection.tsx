@@ -1,6 +1,5 @@
 import { Icons } from "@/components/icons/icons";
 import { Button } from "@/components/ui/button";
-import Signup from "@/components/custom/authComponents/Signup";
 
 const HeroSection = () => {
   const UserRoundPen = Icons.UserRoundPen;
@@ -17,22 +16,14 @@ const HeroSection = () => {
           automatic.
         </p>
         <div className="flex flex-wrap justify-center gap-3 [&>button]:cursor-pointer">
-          <Signup
-            button={
-              <Button variant="blue" size="hero">
-                <UserRoundPen className="h-5 w-5" />
-                I'm a Teacher
-              </Button>
-            }
-          />
-          <Signup
-            button={
-              <Button variant="outlineBlue" size="hero">
-                {" "}
-                <NotebookPen /> I'm a Student
-              </Button>
-            }
-          />
+          <Button variant="blue" size="hero">
+            <UserRoundPen className="h-5 w-5" />
+            I'm a Teacher
+          </Button>
+          <Button variant="outlineBlue" size="hero">
+            {" "}
+            <NotebookPen /> I'm a Student
+          </Button>
         </div>
       </div>
     </div>
