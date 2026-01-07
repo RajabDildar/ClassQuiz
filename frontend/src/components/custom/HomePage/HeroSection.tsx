@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons/icons";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const UserRoundPen = Icons.UserRoundPen;
@@ -15,15 +16,19 @@ const HeroSection = () => {
           only during the allowed window. Evaluation and scoreboard are
           automatic.
         </p>
-        <div className="flex flex-wrap justify-center gap-3 [&>button]:cursor-pointer">
-          <Button variant="blue" size="hero">
-            <UserRoundPen className="h-5 w-5" />
-            I'm a Teacher
-          </Button>
-          <Button variant="outlineBlue" size="hero">
-            {" "}
-            <NotebookPen /> I'm a Student
-          </Button>
+        <div className="flex flex-wrap justify-center gap-3 **:cursor-pointer">
+          <Link to={"/signup"}>
+            <Button variant="blue" size="hero">
+              <UserRoundPen className="h-5 w-5" />
+              I'm a Teacher
+            </Button>
+          </Link>
+          <Link to={"/signup"}>
+            <Button variant="outlineBlue" size="hero">
+              {" "}
+              <NotebookPen /> I'm a Student
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
