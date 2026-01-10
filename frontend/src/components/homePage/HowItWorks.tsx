@@ -1,6 +1,6 @@
-import ExaminoCard from "@/components/custom/HomePage/ExaminoCard";
+import ExaminoCard from "@/components/homePage/ExaminoCard";
 import { Icons } from "@/components/icons/icons";
-import SectionHeader from "@/components/custom/layout/SectionHeader";
+import SectionHeader from "@/components/sections/SectionHeader";
 
 const HowItWorks = () => {
   const Question = Icons.question;

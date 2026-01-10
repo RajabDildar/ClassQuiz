@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Brand from "@/components/custom/layout/Brand";
+import Brand from "@/components/layout/Brand";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {

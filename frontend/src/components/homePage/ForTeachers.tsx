@@ -1,5 +1,5 @@
-import PurposeCard from "@/components/custom/HomePage/PurposeCard";
-import SectionHeader from "@/components/custom/layout/SectionHeader";
+import PurposeCard from "@/components/homePage/PurposeCard";
+import SectionHeader from "@/components/sections/SectionHeader";
 
 const ForTeachers = () => {
   return (

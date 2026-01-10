@@ -1,11 +1,11 @@
-import Navbar from "@/components/custom/layout/Navbar";
-import HeroSection from "@/components/custom/HomePage/HeroSection";
-import HowItWorks from "@/components/custom/HomePage/HowItWorks";
-import WhyExamino from "@/components/custom/HomePage/WhyExamino";
-import ForTeachers from "@/components/custom/HomePage/ForTeachers";
-import ForStudents from "@/components/custom/HomePage/ForStudents";
-import JoinNow from "@/components/custom/HomePage/JoinNow";
-import Footer from "@/components/custom/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+import HeroSection from "@/components/homePage/HeroSection";
+import HowItWorks from "@/components/homePage/HowItWorks";
+import WhyExamino from "@/components/homePage/WhyExamino";
+import ForTeachers from "@/components/homePage/ForTeachers";
+import ForStudents from "@/components/homePage/ForStudents";
+import JoinNow from "@/components/homePage/JoinNow";
+import Footer from "@/components/layout/Footer";
 
 const HomePage = () => {
   return (

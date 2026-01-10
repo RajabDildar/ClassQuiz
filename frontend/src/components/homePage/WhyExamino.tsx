@@ -1,6 +1,6 @@
-import FeatureRow from "@/components/custom/HomePage/FeatureRow";
+import FeatureRow from "@/components/homePage/FeatureRow";
 import { Icons } from "@/components/icons/icons";
-import SectionHeader from "@/components/custom/layout/SectionHeader";
+import SectionHeader from "@/components/sections/SectionHeader";
 
 const WhyExamino = () => {
   const ShieldCheck = Icons.ShieldCheck;
