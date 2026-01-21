@@ -1,5 +1,6 @@
 import PurposeCard from "@/components/homePage/PurposeCard";
 import SectionHeader from "@/components/sections/SectionHeader";
+import { forTeachersInfo } from "../utils/forTeachersInfo";
 
 const ForTeachers = () => {
   return (
@@ -10,34 +11,17 @@ const ForTeachers = () => {
       />
 
       <div className="flex items-center py-12 px-6 gap-y-6 gap-x-3 md:gap-x-8 flex-wrap md:flex-nowrap">
-        <div>
-          <PurposeCard
-            title="Create exams with questions and correct answers"
-            desc="Add multiple choice questions. Mark the correct option for each. Build complete exams in minutes."
-          />
-          <PurposeCard
-            title="Set exact exam start and end time"
-            desc="Define precise date and time windows. Students can only access during this period. Server-controlled timing ensures fairness."
-          />
-          <PurposeCard
-            title="Share one link with the class"
-            desc="Generate unique exam link. Share via any platform. Students use the same link to access the exam."
-          />
-        </div>
-        <div>
-          <PurposeCard
-            title="Automatic checking and scoreboard"
-            desc="System evaluates all submissions instantly. Scoreboard is generated automatically with rankings and scores."
-          />
-          <PurposeCard
-            title="No manual evaluation"
-            desc="Save hours of checking papers. Focus your time on teaching instead of grading."
-          />
-          <PurposeCard
-            title="Fair and consistent results"
-            desc="Every student is evaluated using the same criteria. No bias. No errors. Complete transparency."
-          />
-        </div>
+        {forTeachersInfo.map((group, groupIndex) => (
+          /* This div wraps each set of objects */
+          <div key={groupIndex} className="purpose-group">
+            {group.map((item, itemIndex) => (
+              /* Individual Card Item */
+              <div key={itemIndex} className="purpose-card">
+                <PurposeCard title={item.title} desc={item.desc} />
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

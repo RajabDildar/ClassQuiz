@@ -30,6 +30,8 @@ import {
   Check,
   ShieldCheck,
   BarChart,
+  SquarePen,
+  Info,
 } from "lucide-react";
 
 export const Icons = {
@@ -60,10 +62,11 @@ export const Icons = {
   copyLink: Link,
   scoreboard: BarChart3,
   students: Users,
+  editExam: SquarePen,
 
   // Exam status
   upcoming: Calendar,
-  live: Clock,
+  active: Clock,
   ended: CheckCircle,
   blocked: XCircle,
 
@@ -71,6 +74,7 @@ export const Icons = {
   startExam: Play,
   submitExam: Send,
   viewResult: BarChart3,
+  info: Info,
 
   // Exam content
   question: FileText,
