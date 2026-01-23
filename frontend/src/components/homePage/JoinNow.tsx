@@ -16,13 +16,13 @@ const JoinNow = () => {
         </p>
       </div>
       <div className="flex flex-wrap justify-center gap-3 **:cursor-pointer">
-        <Link to={"/signup"}>
+        <Link to={"/auth/signup"}>
           <Button variant="outlineBlue" size="hero">
             <UserRoundPen className="h-5 w-5" />
             Get Started as Teacher
           </Button>
         </Link>
-        <Link to={"/signup"}>
+        <Link to={"/auth/signup"}>
           <Button variant="blue" size="hero" className="border-2 border-white">
             {" "}
             <NotebookPen /> Join as Student

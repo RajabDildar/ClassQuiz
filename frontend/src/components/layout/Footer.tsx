@@ -8,14 +8,11 @@ const Footer = () => {
       <div className="border-b-2 border-neutral-800 flex justify-between pb-6 gap-y-3 flex-wrap">
         <Brand desc="Fair and secure exams" />
         <div className="links mx-2 flex **:cursor-pointer">
-          <Link to={"/login"}>
+          <Link to={"/auth/login"}>
             <Button variant={"ghost"}>Login</Button>
           </Link>
-          <Link to={"/signup"}>
+          <Link to={"/auth/signup"}>
             <Button variant={"ghost"}>Sign Up</Button>
-          </Link>
-          <Link to={"/about"}>
-            <Button variant={"ghost"}>About</Button>
           </Link>
         </div>
       </div>

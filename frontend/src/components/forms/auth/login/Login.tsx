@@ -16,10 +16,11 @@ import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import LoginFormSchema from "./LoginFormSchema.tsx";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof LoginFormSchema>>({
     resolver: zodResolver(LoginFormSchema),
     defaultValues: {
@@ -33,10 +34,11 @@ const Login = () => {
     setTimeout(() => {
       console.log("You submitted the following values:", data);
       setLoading(false);
+      navigate("/dashboard", { replace: true });
     }, 5000);
   }
   return (
-    <div className="w-full max-w-md p-8 rounded-2xl shadow-sm">
+    <div className="w-full max-w-md p-8 rounded-2xl shadow-sm bg-white">
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FieldGroup>
           <FieldSet>
@@ -86,7 +88,8 @@ const Login = () => {
               />
               <FieldSeparator />
               <FieldDescription>
-                Don't have an Account? <Link to="/signup">Signup</Link>{" "}
+                Don't have an Account?{" "}
+                <Link to="/auth/signup">Signup</Link>{" "}
               </FieldDescription>
             </FieldGroup>
           </FieldSet>

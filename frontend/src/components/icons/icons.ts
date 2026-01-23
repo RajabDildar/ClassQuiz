@@ -32,6 +32,11 @@ import {
   BarChart,
   SquarePen,
   Info,
+  FileQuestion,
+  Home,
+  ArrowLeft,
+  Mail,
+  RefreshCwIcon,
 } from "lucide-react";
 
 export const Icons = {
@@ -48,6 +53,8 @@ export const Icons = {
   Check: Check,
   ShieldCheck: ShieldCheck,
   BarChart: BarChart,
+  Mail: Mail,
+  RefreshIcon: RefreshCwIcon,
 
   // Navigation
   dashboard: LayoutDashboard,
@@ -83,4 +90,9 @@ export const Icons = {
 
   // Alerts / states
   warning: AlertTriangle,
+
+  // Not found
+  FileQuestion: FileQuestion,
+  Home: Home,
+  ArrowLeft: ArrowLeft,
 };

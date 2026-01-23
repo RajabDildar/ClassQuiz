@@ -24,9 +24,10 @@ import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import SignupFormSchema from "./SignupFormSchema.tsx";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof SignupFormSchema>>({
     resolver: zodResolver(SignupFormSchema),
@@ -42,10 +43,11 @@ const Signup = () => {
     setTimeout(() => {
       console.log("You submitted the following values:", data);
       setLoading(false);
+      navigate("/auth/signup/otp-verification", { replace: true });
     }, 5000);
   }
   return (
-    <div className="w-full max-w-md p-8 rounded-2xl shadow-sm">
+    <div className="w-full max-w-md p-8 rounded-2xl shadow-sm bg-white">
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FieldGroup>
           <FieldSet>
@@ -145,7 +147,8 @@ const Signup = () => {
               />
               <FieldSeparator />
               <FieldDescription>
-                Already have an Account? <Link to="/login">Login</Link>{" "}
+                Already have an Account?{" "}
+                <Link to="/auth/login">Login</Link>{" "}
               </FieldDescription>
             </FieldGroup>
           </FieldSet>

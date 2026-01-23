@@ -17,13 +17,13 @@ const HeroSection = () => {
           automatic.
         </p>
         <div className="flex flex-wrap justify-center gap-3 **:cursor-pointer">
-          <Link to={"/signup"}>
+          <Link to={"/auth/signup"}>
             <Button variant="blue" size="hero">
               <UserRoundPen className="h-5 w-5" />
               I'm a Teacher
             </Button>
           </Link>
-          <Link to={"/signup"}>
+          <Link to={"/auth/signup"}>
             <Button variant="outlineBlue" size="hero">
               {" "}
               <NotebookPen /> I'm a Student

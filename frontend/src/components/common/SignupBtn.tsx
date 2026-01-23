@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const SignupBtn = () => {
   return (
-    <Link to={"/signup"}>
+    <Link to={"/auth/signup"}>
       <Button size="lg" variant="blue">
         Sign Up
       </Button>

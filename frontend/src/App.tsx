@@ -1,20 +1,23 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import TeacherDashboard from "./pages/TeacherDashboard";
-import StudentDashboard from "./pages/StudentDashboard";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import About from "./pages/About";
+import NotFound from "./pages/NotFound";
+import OtpVerificationPage from "./pages/OtpVerificationPage";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/signup" element={<SignupPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/teacherdashboard" element={<TeacherDashboard />} />
-      <Route path="/studentdashboard" element={<StudentDashboard />} />
+      <Route path="/auth/signup" element={<SignupPage />} />
+      <Route
+        path="/auth/signup/otp-verification"
+        element={<OtpVerificationPage />}
+      />
+      <Route path="/auth/login" element={<LoginPage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
