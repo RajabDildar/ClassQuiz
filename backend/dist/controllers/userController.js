@@ -1,16 +1,19 @@
-import express, {} from "express";
+import {} from "express";
 import User from "../models/User.js";
-const addUser = async (req, res) => {
-    // let {name, email, password, role} = req.body
-    const newUser = new User(req.body);
-    newUser.save().then(() => {
-        console.log("User added successfully!", newUser);
-    });
-    res.status(201).send("User added successfully!");
+import Hash from "../utils/Hash.js";
+import { UserSchema } from "../schemas/userSchema.js";
+const registerNewUser = async (req, res) => {
+    let { error } = UserSchema.validate(req.body);
+    if (error) {
+        res.send("Invalid data");
+        return;
+    }
+    let { name, email, password, role } = req.body;
+    const hashedPassword = await Hash(password);
+    const newUser = new User({ name, email, role, password: hashedPassword });
+    await newUser.save();
+    console.log("User added successfully!", newUser);
+    res.send("User added successfully!");
 };
-const seeUsers = async (req, res) => {
-    const users = User.find();
-    res.status(201).json(users);
-};
-export { addUser, seeUsers };
+export { registerNewUser };
 //# sourceMappingURL=userController.js.map

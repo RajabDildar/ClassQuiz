@@ -1,10 +1,12 @@
+import type { HttpStatus } from "./httpStatusCodes.js";
+
 class ExpressError extends Error {
   statusCode: number;
-  constructor(statusCode: number, message: string) {
+  constructor(statusCode: HttpStatus, message: string) {
     super();
     this.statusCode = statusCode;
     this.message = message;
   }
 }
 
-module.exports = ExpressError;
+export default ExpressError;

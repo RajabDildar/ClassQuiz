@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 
-module.exports = (fn: Function) => {
+export default (fn: Function) => {
   return (req: Request, res: Response, next: NextFunction) => {
     fn(req, res, next).catch(next);
   };

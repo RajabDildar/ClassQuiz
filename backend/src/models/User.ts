@@ -14,18 +14,32 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    password: {
+    passwordHash: {
       type: String,
       required: true,
+      min: 8,
     },
     role: {
       type: String,
       enum: ["student", "teacher"],
       required: true,
     },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true },
 );
+
+userSchema.post("findOneAndDelete", async function (doc) {
+  if (doc) {
+    await mongoose.model("EmailOtp").deleteMany({
+      userId: doc._id,
+    });
+    console.log(`Cleaned up OTPs for deleted user: ${doc._id}`);
+  }
+});
 
 const User = mongoose.model("User", userSchema);
 

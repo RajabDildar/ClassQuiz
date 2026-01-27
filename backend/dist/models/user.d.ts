@@ -4,6 +4,7 @@ declare const User: mongoose.Model<{
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
 } & mongoose.DefaultTimestampProps, {}, {}, {
     id: string;
 }, mongoose.Document<unknown, {}, {
@@ -11,6 +12,7 @@ declare const User: mongoose.Model<{
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
 } & mongoose.DefaultTimestampProps, {
     id: string;
 }, {
@@ -20,6 +22,7 @@ declare const User: mongoose.Model<{
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
 } & mongoose.DefaultTimestampProps & {
     _id: mongoose.Types.ObjectId;
 } & {
@@ -33,11 +36,13 @@ declare const User: mongoose.Model<{
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
 } & mongoose.DefaultTimestampProps, mongoose.Document<unknown, {}, {
     name: string;
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
 } & mongoose.DefaultTimestampProps, {
     id: string;
 }, mongoose.ResolveSchemaOptions<{
@@ -47,6 +52,7 @@ declare const User: mongoose.Model<{
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
 } & mongoose.DefaultTimestampProps & {
     _id: mongoose.Types.ObjectId;
 } & {
@@ -61,6 +67,7 @@ declare const User: mongoose.Model<{
         email: string;
         password: string;
         role: "student" | "teacher";
+        isVerified: boolean;
     } & mongoose.DefaultTimestampProps, {
         id: string;
     }, mongoose.ResolveSchemaOptions<{
@@ -70,6 +77,7 @@ declare const User: mongoose.Model<{
         email: string;
         password: string;
         role: "student" | "teacher";
+        isVerified: boolean;
     } & mongoose.DefaultTimestampProps & {
         _id: mongoose.Types.ObjectId;
     } & {
@@ -82,6 +90,7 @@ declare const User: mongoose.Model<{
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
@@ -93,6 +102,7 @@ declare const User: mongoose.Model<{
     email: string;
     password: string;
     role: "student" | "teacher";
+    isVerified: boolean;
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
