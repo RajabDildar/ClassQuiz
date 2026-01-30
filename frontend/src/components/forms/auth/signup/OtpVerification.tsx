@@ -20,32 +20,39 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import OtpSchema from "./OtpSchema.tsx";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icons } from "@/components/icons/icons.ts";
+import { useVerifyOtp, useResendOtp } from "@/hooks/useOtp";
 
-const OtpVerification = () => {
+const OtpVerification = ({ email }: { email: string }) => {
   const RefreshIcon = Icons.RefreshIcon;
   const Mail = Icons.Mail;
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+
+  const verifyOtpMutation = useVerifyOtp();
+  const resendOtpMutation = useResendOtp();
 
   const form = useForm<z.infer<typeof OtpSchema>>({
     resolver: zodResolver(OtpSchema),
     defaultValues: {
-      code: "",
+      otp: "",
     },
   });
 
-  // todo logic here after submission
-  function onSubmit(data: z.infer<typeof OtpSchema>) {
-    setLoading(true);
-    setTimeout(() => {
-      console.log("You submitted the following values:", data);
-      setLoading(false);
-      navigate("/dashboard", { replace: true });
-    }, 5000);
-  }
+  const onSubmit = async (data: z.infer<typeof OtpSchema>) => {
+    verifyOtpMutation.mutate(
+      { email, otp: data.otp },
+      {
+        onSuccess: () => {
+          navigate("/dashboard", { replace: true });
+        },
+      },
+    );
+  };
+
+  const resendCode = async () => {
+    resendOtpMutation.mutate(email);
+  };
 
   return (
     <Card className="mx-auto max-w-md">
@@ -57,7 +64,7 @@ const OtpVerification = () => {
           <CardTitle>Check your email</CardTitle>
           <CardDescription>
             We sent a verification code to{" "}
-            <span className="font-medium">user@example.com</span>.
+            <span className="font-medium">{email}</span>.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -66,13 +73,18 @@ const OtpVerification = () => {
               <FieldLabel htmlFor="otp-verification">
                 Verification code
               </FieldLabel>
-              <Button variant="outline" size="xs">
+              <Button
+                type="button"
+                onClick={resendCode}
+                variant="outline"
+                size="xs"
+              >
                 <RefreshIcon />
                 Resend Code
               </Button>
             </div>
             <Controller
-              name="code"
+              name="otp"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
@@ -106,12 +118,12 @@ const OtpVerification = () => {
         <CardFooter>
           <Field className="py-6">
             <Button
-              disabled={loading}
+              disabled={verifyOtpMutation.isPending}
               type="submit"
               variant={"blue"}
               className="w-full"
             >
-              {loading && <Spinner />} Verify
+              {verifyOtpMutation.isPending && <Spinner />} Verify
             </Button>
           </Field>
         </CardFooter>

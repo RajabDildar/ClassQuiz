@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-import crypto from "crypto";
-import { EmailOtp } from "./EmailOtp.js";
 const userSchema = new Schema({
     name: {
         type: String,
@@ -14,7 +12,7 @@ const userSchema = new Schema({
         required: true,
         unique: true,
     },
-    password: {
+    passwordHash: {
         type: String,
         required: true,
         min: 8,
@@ -29,21 +27,11 @@ const userSchema = new Schema({
         default: false,
     },
 }, { timestamps: true });
-userSchema.post("save", async (user, next) => {
-    try {
-        const generatedOtp = crypto.randomInt(1000, 9999).toString();
-        const otpExpiresAt = Date.now() + 5 * 60 * 1000;
-        const Otp = new EmailOtp({
-            otp: generatedOtp,
-            otpExpiresAt,
-            userId: user._id,
+userSchema.post("findOneAndDelete", async function (doc) {
+    if (doc) {
+        await mongoose.model("EmailOtp").deleteMany({
+            userId: doc._id,
         });
-        await Otp.save();
-        console.log("Otp saved in DB.");
-        next();
-    }
-    catch (error) {
-        console.log(error);
     }
 });
 const User = mongoose.model("User", userSchema);

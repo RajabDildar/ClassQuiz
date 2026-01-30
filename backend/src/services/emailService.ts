@@ -1,4 +1,6 @@
 import nodemailer from "nodemailer";
+import ExpressError from "../utils/ExpressError.js";
+import { HttpStatus } from "../utils/httpStatusCodes.js";
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -28,11 +30,12 @@ const sendOTP = async ({
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully:", info.response);
     return info;
   } catch (error) {
-    console.error("Error sending email:", error);
-    throw error;
+    throw new ExpressError(
+      HttpStatus.SERVICE_UNAVAILABLE,
+      "Failed to send OTP at EMAIL",
+    );
   }
 };
 

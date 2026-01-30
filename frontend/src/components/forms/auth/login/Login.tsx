@@ -15,12 +15,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import LoginFormSchema from "./LoginFormSchema.tsx";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Login = () => {
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+interface LoginInterface {
+  loading: boolean;
+  onSubmit: (data: z.infer<typeof LoginFormSchema>) => void;
+}
+
+const Login = ({ onSubmit, loading }: LoginInterface) => {
   const form = useForm<z.infer<typeof LoginFormSchema>>({
     resolver: zodResolver(LoginFormSchema),
     defaultValues: {
@@ -29,14 +31,6 @@ const Login = () => {
     },
   });
 
-  function onSubmit(data: z.infer<typeof LoginFormSchema>) {
-    setLoading(true);
-    setTimeout(() => {
-      console.log("You submitted the following values:", data);
-      setLoading(false);
-      navigate("/dashboard", { replace: true });
-    }, 5000);
-  }
   return (
     <div className="w-full max-w-md p-8 rounded-2xl shadow-sm bg-white">
       <form onSubmit={form.handleSubmit(onSubmit)}>

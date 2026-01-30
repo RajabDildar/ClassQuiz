@@ -1,13 +1,28 @@
 import { createRoot } from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./index.css";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
-import { UserProvider } from "./contexts/UserContext.tsx";
+import { Toaster } from "sonner";
+import { Suspense } from "react";
+import { Loader } from "lucide-react";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 createRoot(document.getElementById("root")!).render(
-  <UserProvider>
+  <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <App />
+      <Suspense fallback={<Loader />}>
+        <App />
+      </Suspense>
+      <Toaster />
     </BrowserRouter>
-  </UserProvider>,
+  </QueryClientProvider>,
 );

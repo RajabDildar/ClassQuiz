@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Link } from "react-router-dom";
 
 interface profileHeaderInterface {
   name: string;
@@ -7,7 +8,7 @@ interface profileHeaderInterface {
 
 const ProfileHeader = ({ name, role }: profileHeaderInterface) => {
   return (
-    <div className="flex gap-3 text-end">
+    <Link to={"/dashboard"} className="flex gap-3 text-end">
       <div className="hidden sm:block">
         <h1 className="font-semibold text-sm">{name.toUpperCase()}</h1>
         <p className="text-neutral-400 text-sm">
@@ -19,7 +20,7 @@ const ProfileHeader = ({ name, role }: profileHeaderInterface) => {
           {name.charAt(0).toUpperCase()}
         </AvatarFallback>
       </Avatar>
-    </div>
+    </Link>
   );
 };
 

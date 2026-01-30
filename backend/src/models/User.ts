@@ -37,7 +37,6 @@ userSchema.post("findOneAndDelete", async function (doc) {
     await mongoose.model("EmailOtp").deleteMany({
       userId: doc._id,
     });
-    console.log(`Cleaned up OTPs for deleted user: ${doc._id}`);
   }
 });
 

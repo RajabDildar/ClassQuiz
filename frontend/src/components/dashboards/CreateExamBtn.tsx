@@ -5,7 +5,7 @@ import { Icons } from "../icons/icons";
 const CreateExamBtn = () => {
   const CreateExam = Icons.createExam;
   return (
-    <Link to={"/exam/new"}>
+    <Link to={"/exam/create"}>
       <Button
         className="cursor-pointer font-semibold tracking-tight"
         variant="blue"

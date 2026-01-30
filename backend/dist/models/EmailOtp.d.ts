@@ -1,47 +1,53 @@
 import mongoose from "mongoose";
 export declare const EmailOtp: mongoose.Model<{
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
     attempts: number;
-}, {}, {}, {
+} & mongoose.DefaultTimestampProps, {}, {}, {
     id: string;
 }, mongoose.Document<unknown, {}, {
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
     attempts: number;
-}, {
+} & mongoose.DefaultTimestampProps, {
     id: string;
-}, mongoose.DefaultSchemaOptions> & Omit<{
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
+}, {
+    timestamps: true;
+}> & Omit<{
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
     attempts: number;
-} & {
+} & mongoose.DefaultTimestampProps & {
     _id: mongoose.Types.ObjectId;
 } & {
     __v: number;
 }, "id"> & {
     id: string;
-}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
-    attempts: number;
-}, mongoose.Document<unknown, {}, {
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
-    attempts: number;
+}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any, any>, {}, {}, {}, {}, {
+    timestamps: true;
 }, {
-    id: string;
-}, mongoose.ResolveSchemaOptions<mongoose.DefaultSchemaOptions>> & Omit<{
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
     attempts: number;
-} & {
+} & mongoose.DefaultTimestampProps, mongoose.Document<unknown, {}, {
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
+    attempts: number;
+} & mongoose.DefaultTimestampProps, {
+    id: string;
+}, mongoose.ResolveSchemaOptions<{
+    timestamps: true;
+}>> & Omit<{
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
+    attempts: number;
+} & mongoose.DefaultTimestampProps & {
     _id: mongoose.Types.ObjectId;
 } & {
     __v: number;
@@ -51,18 +57,20 @@ export declare const EmailOtp: mongoose.Model<{
     [path: string]: mongoose.SchemaDefinitionProperty<undefined, any, any>;
 } | {
     [x: string]: mongoose.SchemaDefinitionProperty<any, any, mongoose.Document<unknown, {}, {
-        userId: string;
-        otp: string;
-        otpExpiresAt: number;
+        userId: mongoose.Types.ObjectId;
+        otpHash: string;
+        otpExpiresAt: NativeDate;
         attempts: number;
-    }, {
+    } & mongoose.DefaultTimestampProps, {
         id: string;
-    }, mongoose.ResolveSchemaOptions<mongoose.DefaultSchemaOptions>> & Omit<{
-        userId: string;
-        otp: string;
-        otpExpiresAt: number;
+    }, mongoose.ResolveSchemaOptions<{
+        timestamps: true;
+    }>> & Omit<{
+        userId: mongoose.Types.ObjectId;
+        otpHash: string;
+        otpExpiresAt: NativeDate;
         attempts: number;
-    } & {
+    } & mongoose.DefaultTimestampProps & {
         _id: mongoose.Types.ObjectId;
     } & {
         __v: number;
@@ -70,19 +78,23 @@ export declare const EmailOtp: mongoose.Model<{
         id: string;
     }> | undefined;
 }, {
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
     attempts: number;
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
 } & {
     _id: mongoose.Types.ObjectId;
 } & {
     __v: number;
 }>, {
-    userId: string;
-    otp: string;
-    otpExpiresAt: number;
+    userId: mongoose.Types.ObjectId;
+    otpHash: string;
+    otpExpiresAt: NativeDate;
     attempts: number;
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
 } & {
     _id: mongoose.Types.ObjectId;
 } & {

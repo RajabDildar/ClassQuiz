@@ -6,6 +6,5 @@ class ExpressError extends Error {
         this.message = message;
     }
 }
-module.exports = ExpressError;
-export {};
+export default ExpressError;
 //# sourceMappingURL=ExpressError.js.map

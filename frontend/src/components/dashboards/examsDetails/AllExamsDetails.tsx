@@ -12,6 +12,7 @@ import ExamTiming from "./ExamTiming";
 import ExamStatus from "./ExamStatus";
 import TeacherActions from "./TeacherActions";
 import StudentActions from "./StudentActions";
+import EmptyState from "@/components/layout/EmptyState";
 
 interface Exam {
   title: string;
@@ -30,53 +31,65 @@ interface AllExamDetailsInterface {
 
 const AllExamsDetails = ({ examData, role }: AllExamDetailsInterface) => {
   return (
-    <div className="border rounded-2xl p-3 my-6">
-      <Table>
-        <TableCaption className="caption-top text-left text-2xl font-semibold tracking-tight text-foreground mb-4">
-          Your Exams
-        </TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-25">EXAM TITLE</TableHead>
-            <TableHead>DATE & TIME</TableHead>
-            <TableHead>STATUS</TableHead>
-            <TableHead className="text-right">ACTIONS</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {examData &&
-            examData.map((exam, index) => (
-              <TableRow key={index}>
-                <TableCell className="pr-12 md:pr-24">
-                  <ExamInfo
-                    title={exam.title}
-                    totalQuestions={exam.totalQuestions}
-                    totalTime={exam.totalTime}
-                  />
-                </TableCell>
-                <TableCell>
-                  {" "}
-                  <ExamTiming
-                    date={exam.date}
-                    startTime={exam.startTime}
-                    endTime={exam.endTime}
-                  />{" "}
-                </TableCell>
-                <TableCell>
-                  <ExamStatus status={exam.status} />
-                </TableCell>
-                <TableCell className="flex justify-end">
-                  {role === "teacher" ? (
-                    <TeacherActions />
-                  ) : (
-                    <StudentActions status={exam.status} />
-                  )}
-                </TableCell>
+    <>
+      {examData ? (
+        <div className="border rounded-2xl p-3 my-6 bg-white">
+          <Table>
+            <TableCaption className="caption-top text-left text-2xl font-semibold tracking-tight text-foreground mb-4">
+              Your Exams
+            </TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-25">EXAM TITLE</TableHead>
+                <TableHead>DATE & TIME</TableHead>
+                <TableHead>STATUS</TableHead>
+                <TableHead className="text-right">ACTIONS</TableHead>
               </TableRow>
-            ))}
-        </TableBody>
-      </Table>
-    </div>
+            </TableHeader>
+            <TableBody>
+              {examData.map((exam, index) => (
+                <TableRow key={index}>
+                  <TableCell className="pr-12 md:pr-24">
+                    <ExamInfo
+                      title={exam.title}
+                      totalQuestions={exam.totalQuestions}
+                      totalTime={exam.totalTime}
+                    />
+                  </TableCell>
+                  <TableCell>
+                    {" "}
+                    <ExamTiming
+                      date={exam.date}
+                      startTime={exam.startTime}
+                      endTime={exam.endTime}
+                    />{" "}
+                  </TableCell>
+                  <TableCell>
+                    <ExamStatus status={exam.status} />
+                  </TableCell>
+                  <TableCell className="flex justify-end">
+                    {role === "teacher" ? (
+                      <TeacherActions />
+                    ) : (
+                      <StudentActions status={exam.status} />
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>{" "}
+        </div>
+      ) : (
+        <div className="my-6">
+          <EmptyState
+            title="No Exams Yet"
+            desc="All your exam details will appear here."
+            width="w-full"
+            isActionRequired={false}
+          />
+        </div>
+      )}
+    </>
   );
 };
 

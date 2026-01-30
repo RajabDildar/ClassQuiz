@@ -16,6 +16,7 @@ interface EmptyInterface {
   desc: string;
   action?: ReactNode;
   width?: string;
+  isActionRequired: boolean;
 }
 const EmptyState = ({
   icon,
@@ -23,6 +24,7 @@ const EmptyState = ({
   desc,
   action,
   width = "max-w-3xl",
+  isActionRequired,
 }: EmptyInterface) => {
   const FileQuestion = Icons.FileQuestion;
   return (
@@ -33,13 +35,14 @@ const EmptyState = ({
         <EmptyDescription>{desc}</EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
-        {action || (
-          <Link to={"/auth/login"}>
-            <Button variant={"outline"} size="sm">
-              Login
-            </Button>
-          </Link>
-        )}
+        {isActionRequired &&
+          (action || (
+            <Link to={"/auth/login"}>
+              <Button variant={"outline"} size="sm">
+                Login
+              </Button>
+            </Link>
+          ))}
       </EmptyContent>
     </Empty>
   );

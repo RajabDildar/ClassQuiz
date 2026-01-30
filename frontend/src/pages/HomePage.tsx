@@ -1,4 +1,3 @@
-import Navbar from "@/components/layout/Navbar";
 import HeroSection from "@/components/homePage/HeroSection";
 import HowItWorks from "@/components/homePage/HowItWorks";
 import WhyExamino from "@/components/homePage/WhyExamino";
@@ -6,13 +5,10 @@ import ForTeachers from "@/components/homePage/ForTeachers";
 import ForStudents from "@/components/homePage/ForStudents";
 import JoinNow from "@/components/homePage/JoinNow";
 import Footer from "@/components/layout/Footer";
-import LoginBtn from "@/components/common/LoginBtn";
-import SignupBtn from "@/components/common/SignupBtn";
 
 const HomePage = () => {
   return (
     <div className="HomePage pt-16">
-      <Navbar actionOne={<LoginBtn />} actionTwo={<SignupBtn />} />
       <HeroSection />
       <HowItWorks />
       <ForTeachers />

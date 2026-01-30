@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
-// import { FileQuestion, Home, ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
   const ArrowLeft = Icons.ArrowLeft;
   const FileQuestion = Icons.FileQuestion;
   const Home = Icons.Home;
+
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center bg-background px-4 text-center">
+    <div className="flex min-h-dvh flex-col items-center justify-center bg-background px-4 text-center pt-16">
       <div className="relative mb-8 flex h-32 w-32 items-center justify-center rounded-full bg-muted">
         <div className="absolute -right-2 -top-2 h-10 w-10 animate-bounce rounded-full bg-blue-500/20" />
         <FileQuestion className="h-16 w-16 text-muted-foreground" />

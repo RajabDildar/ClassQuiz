@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 declare const User: mongoose.Model<{
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
 } & mongoose.DefaultTimestampProps, {}, {}, {
@@ -10,7 +10,7 @@ declare const User: mongoose.Model<{
 }, mongoose.Document<unknown, {}, {
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
 } & mongoose.DefaultTimestampProps, {
@@ -20,7 +20,7 @@ declare const User: mongoose.Model<{
 }> & Omit<{
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
 } & mongoose.DefaultTimestampProps & {
@@ -34,13 +34,13 @@ declare const User: mongoose.Model<{
 }, {
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
 } & mongoose.DefaultTimestampProps, mongoose.Document<unknown, {}, {
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
 } & mongoose.DefaultTimestampProps, {
@@ -50,7 +50,7 @@ declare const User: mongoose.Model<{
 }>> & Omit<{
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
 } & mongoose.DefaultTimestampProps & {
@@ -65,7 +65,7 @@ declare const User: mongoose.Model<{
     [x: string]: mongoose.SchemaDefinitionProperty<any, any, mongoose.Document<unknown, {}, {
         name: string;
         email: string;
-        password: string;
+        passwordHash: string;
         role: "student" | "teacher";
         isVerified: boolean;
     } & mongoose.DefaultTimestampProps, {
@@ -75,7 +75,7 @@ declare const User: mongoose.Model<{
     }>> & Omit<{
         name: string;
         email: string;
-        password: string;
+        passwordHash: string;
         role: "student" | "teacher";
         isVerified: boolean;
     } & mongoose.DefaultTimestampProps & {
@@ -88,7 +88,7 @@ declare const User: mongoose.Model<{
 }, {
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
     createdAt: NativeDate;
@@ -100,7 +100,7 @@ declare const User: mongoose.Model<{
 }>, {
     name: string;
     email: string;
-    password: string;
+    passwordHash: string;
     role: "student" | "teacher";
     isVerified: boolean;
     createdAt: NativeDate;

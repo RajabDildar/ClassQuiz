@@ -1,16 +1,14 @@
-import type { NextFunction } from "express";
 import { HttpStatus } from "../utils/httpStatusCodes.js";
 import ExpressError from "../utils/ExpressError.js";
 import { verifyJwt } from "../utils/jwt.js";
+import { type Response, type NextFunction } from "express";
 
 const authenticateUser = (req: any, res: Response, next: NextFunction) => {
-  const authHeader = req.headers.authorization;
+  const token = req.cookies.access_token;
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    throw new ExpressError(HttpStatus.UNAUTHORIZED, "Not authenticated");
+  if (!token) {
+    throw new ExpressError(HttpStatus.FORBIDDEN, "Not authenticated");
   }
-
-  const token = authHeader.split(" ")[1];
 
   const decoded = verifyJwt(token);
   req.user = decoded;

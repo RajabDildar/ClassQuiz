@@ -23,12 +23,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import SignupFormSchema from "./SignupFormSchema.tsx";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Signup = () => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+interface signupInterface {
+  loading: boolean;
+  onSubmit: (data: z.infer<typeof SignupFormSchema>) => void;
+}
+
+const Signup = ({ onSubmit, loading }: signupInterface) => {
   const form = useForm<z.infer<typeof SignupFormSchema>>({
     resolver: zodResolver(SignupFormSchema),
     defaultValues: {
@@ -38,14 +40,6 @@ const Signup = () => {
     },
   });
 
-  function onSubmit(data: z.infer<typeof SignupFormSchema>) {
-    setLoading(true);
-    setTimeout(() => {
-      console.log("You submitted the following values:", data);
-      setLoading(false);
-      navigate("/auth/signup/otp-verification", { replace: true });
-    }, 5000);
-  }
   return (
     <div className="w-full max-w-md p-8 rounded-2xl shadow-sm bg-white">
       <form onSubmit={form.handleSubmit(onSubmit)}>

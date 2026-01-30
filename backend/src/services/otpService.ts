@@ -13,10 +13,10 @@ const createAndSendOtp = async (user: any) => {
     otpExpiresAt: new Date(Date.now() + 5 * 60 * 1000),
   });
 
-  /*   await sendOTP({
+  await sendOTP({
     recipientName: user.name,
     recipientEmail: user.email,
     otp,
-  }); */
+  });
 };
 export default createAndSendOtp;
